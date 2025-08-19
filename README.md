@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Feliz 2 meses 🤍</title> 
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Courier New', monospace;
+      background: #000;
+      color: #0f0;
+      overflow-x: hidden;
+      text-align: center;
+    }
+    header {
+      margin: 20px;
+    }
+    header img {
+      width: 150px;
+      border-radius: 50%;
+      border: 3px solid #ffcc00;
+      margin: 10px;
+    }
+    h1 {
+      color: #ffcc00;
+      margin-top: 20px;
+    }
+    .console {
+      background: #111;
+      text-align: left;
+      margin: 40px auto;
+      padding: 20px;
+      width: 80%;
+      max-width: 600px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #333;
+      font-size: 16px;
+      line-height: 1.5;
+      min-height: 200px;
+      border: 2px solid #333;
+    }
+    .btn {
+      background: #ffcc00;
+      border: none;
+      padding: 15px 25px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 8px;
+      margin-top: 20px;
+      color: #000;
+      font-weight: bold;
+    }
+    .mensagem {
+      display: none;
+      margin-top: 30px;
+      font-size: 18px;
+      color: #ffcc00;
+    }
+    /* corações caindo */
+    .heart {
+      position: fixed;
+      top: -10px;
+      color: #ffcc00;
+      font-size: 20px;
+      animation: fall linear forwards;
+    }
+    @keyframes fall {
+      to {
+        transform: translateY(100vh);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="IMG_2352.jpeg" alt="Nós dois">
+    <img src="IMG_2356.jpeg" alt="Nós dois">
+    <h1>Feliz 2 meses 🤍</h1> 
+  </header>
+
+  <div class="console" id="console"></div>
+
+  <button class="btn" onclick="mostrarMensagem()">Desbloquear surpresa</button>
+
+  <div class="mensagem" id="msg">
+    <p>Erro 404: Você é o melhor namorado do mundo 🤍</p> 
+    <p>Obrigada por aguentar meus bugs nesses 2 meses 🐞😂</p> 
+    <p>Eu te amo muito! Vamos para muitos updates juntos. ✨</p> 
+  </div>
+
+  <script>
+    const consoleBox = document.getElementById("console");
+    const lines = [
+      "Iniciando programa...",
+      "Carregando memórias de nós dois...",
+      "Compilando felicidade...",
+      "Executando comando: love.exe",
+      "Status: ONLINE 🤍", 
+      "Tempo de execução: 2 meses 🎉",
+      "Mensagem: Você é meu bug favorito (e também minha solução)."
+    ];
+
+    let i = 0;
+    function typeLine() {
+      if (i < lines.length) {
+        let line = document.createElement("div");
+        line.textContent = "> " + lines[i];
+        consoleBox.appendChild(line);
+        i++;
+        setTimeout(typeLine, 1500);
+      }
+    }
+    typeLine();
+
+    function mostrarMensagem() {
+      document.getElementById('msg').style.display = 'block';
+      criarCoracoes();
+    }
+
+    // gerar corações caindo
+    function criarCoracoes() {
+      for (let i = 0; i < 40; i++) {
+        let heart = document.createElement("div");
+        heart.className = "heart";
+        heart.innerText = "🤍"; 
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.fontSize = Math.random() * 20 + 15 + "px";
+        heart.style.animationDuration = (Math.random() * 2 + 3) + "s";
+        document.body.appendChild(heart);
+        setTimeout(() => {
+          heart.remove();
+        }, 5000);
+      }
+    }
+  </script>
+</body>
+</html>
